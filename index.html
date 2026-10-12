@@ -430,6 +430,7 @@ html,body{margin:0}
     <div class="card">
       <div class="card-head"><h2 class="h2">Notifiche</h2><span class="v" id="n-badge"></span></div>
       <p class="muted" id="n-status"></p>
+      <p class="muted" id="n-diag" style="font-size:.75rem;opacity:.8"></p>
       <button type="button" class="btn day" id="n-on" style="--day:var(--water)">Attiva notifiche</button>
       <div id="n-code-wrap" class="view" style="gap:10px" hidden>
         <p class="muted">Ultimo passo: copia questo codice e salvalo su GitHub, nel repository scheda: Settings → Secrets and variables → Actions → New repository secret, con nome PUSH_CONFIG.</p>
@@ -954,6 +955,13 @@ html,body{margin:0}
   function unb64u(s){s=s.replace(/-/g,"+").replace(/_/g,"/");while(s.length%4)s+="=";var r=atob(s),o=new Uint8Array(r.length);for(var i=0;i<r.length;i++)o[i]=r.charCodeAt(i);return o}
   function isStandalone(){return (window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true}
   function pushSupported(){return "serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window}
+  function swReady(){return Promise.race([navigator.serviceWorker.ready,new Promise(function(_,rej){setTimeout(function(){rej(new Error("servizio in background non pronto: chiudi l'app dal multitasking e riaprila"))},6000)})])}
+  async function diag(){
+    var ios=(navigator.userAgent.match(/OS (\d+)_(\d+)/)||[]).slice(1).join("."),sw="no";
+    try{if("serviceWorker" in navigator){var r=await navigator.serviceWorker.getRegistration();sw=r?(r.active?"attivo":"in avvio"):"assente"}}catch(e){sw="errore"}
+    var sub="no";try{if(sw==="attivo"){var rr=await navigator.serviceWorker.getRegistration();sub=(rr.pushManager&&await rr.pushManager.getSubscription())?"sì":"no"}}catch(e){}
+    $("n-diag").textContent="Diagnosi: iOS "+(ios||"?")+" · da icona Home: "+(isStandalone()?"sì":"no")+" · push: "+("PushManager" in window?"sì":"no")+" · permesso: "+("Notification" in window?Notification.permission:"n/d")+" · servizio: "+sw+" · iscrizione: "+sub;
+  }
   function codeFor(cfg){return btoa(JSON.stringify({subscription:cfg.sub,publicKey:cfg.pub,privateKey:cfg.priv}))}
   function renderNotif(){
     var cfg=lsGet(NKEY,null),st=$("n-status");
@@ -972,7 +980,7 @@ html,body{margin:0}
     try{
       var perm=await Notification.requestPermission();
       if(perm!=="granted"){st.textContent="Notifiche non consentite. Puoi riattivarle da Impostazioni → Notifiche → Scheda.";return}
-      var reg=await navigator.serviceWorker.ready,cfg=lsGet(NKEY,null),sub=await reg.pushManager.getSubscription();
+      var reg=await swReady(),cfg=lsGet(NKEY,null),sub=await reg.pushManager.getSubscription();
       if(!cfg||!cfg.priv){
         if(sub){await sub.unsubscribe();sub=null}
         var kp=await crypto.subtle.generateKey({name:"ECDSA",namedCurve:"P-256"},true,["sign","verify"]);
@@ -981,13 +989,13 @@ html,body{margin:0}
       }
       if(!sub)sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:unb64u(cfg.pub)});
       cfg.sub=sub.toJSON();lsSet(NKEY,cfg);
-      $("n-code").value=codeFor(cfg);$("n-code-wrap").hidden=false;renderNotif();
-    }catch(e){st.textContent="Non sono riuscito ad attivarle ("+(e&&e.message||e)+"). Chiudi e riapri l'app dall'icona e riprova."}
+      $("n-code").value=codeFor(cfg);$("n-code-wrap").hidden=false;renderNotif();diag();
+    }catch(e){st.textContent="Non sono riuscito ad attivarle ("+(e&&e.message||e)+"). Chiudi e riapri l'app dall'icona e riprova."}diag();
   });
   $("n-copy").addEventListener("click",function(){var v=$("n-code").value,b=this;var ok=function(){b.textContent="Copiato";setTimeout(function(){b.textContent="Copia codice"},1500)};try{navigator.clipboard.writeText(v).then(ok,function(){$("n-code").select()})}catch(e){$("n-code").select()}});
   $("n-test").addEventListener("click",async function(){
-    try{if(Notification.permission!=="granted"){var p=await Notification.requestPermission();if(p!=="granted")return}var reg=await navigator.serviceWorker.ready;await reg.showNotification("Scheda",{body:"Le notifiche funzionano. Ci vediamo alle 10:30 per l'acqua.",icon:"icon-192.png"})}
-    catch(e){$("n-status").textContent="Prova non riuscita: apri l'app dall'icona sulla schermata Home."}
+    try{if(Notification.permission!=="granted"){var p=await Notification.requestPermission();if(p!=="granted")return}var reg=await swReady();await reg.showNotification("Scheda",{body:"Le notifiche funzionano. Ci vediamo alle 10:30 per l'acqua.",icon:"icon-192.png"})}
+    catch(e){$("n-status").textContent="Prova non riuscita: "+(e&&e.message||e)}diag();
   });
 
   /* ================= NAVIGAZIONE E AVVIO ================= */
@@ -995,7 +1003,7 @@ html,body{margin:0}
     tab=t;lsSet("sf4-tab",t);
     $("v-today").hidden=t!=="today";$("v-train").hidden=t!=="train";$("v-log").hidden=t!=="log";$("v-coach").hidden=t!=="coach";
     [].forEach.call(document.querySelectorAll(".nav button"),function(b){if(b.dataset.tab===t)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
-    if(t==="today")renderToday();if(t==="log")renderLog();
+    if(t==="today")renderToday();if(t==="log")renderLog();if(t==="coach"){renderNotif();diag()}
     window.scrollTo(0,0);
   }
   document.querySelector(".nav").addEventListener("click",function(e){var b=e.target.closest("button");if(b)showTab(b.dataset.tab)});
@@ -1003,7 +1011,7 @@ html,body{margin:0}
 
   var qtab=(location.search.match(/tab=(\w+)/)||[])[1];if(qtab&&["today","train","log","coach"].indexOf(qtab)>=0)tab=qtab;
   renderToday();renderHome();renderLog();showPlan();renderNotif();showTab(tab);
-  if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").then(function(){renderNotif()}).catch(function(){});
+  if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").then(function(){renderNotif();diag()}).catch(function(){});
 })();
 </script>
 </body>
