@@ -432,7 +432,7 @@ html,body{margin:0}
       <p class="muted" id="n-status"></p>
       <button type="button" class="btn day" id="n-on" style="--day:var(--water)">Attiva notifiche</button>
       <div id="n-code-wrap" class="view" style="gap:10px" hidden>
-        <p class="muted">Ultimo passo: copia questo codice e incollalo nella chat con Claude. Serve a GitHub per mandarti le notifiche.</p>
+        <p class="muted">Ultimo passo: copia questo codice e salvalo su GitHub, nel repository scheda: Settings → Secrets and variables → Actions → New repository secret, con nome PUSH_CONFIG.</p>
         <textarea id="n-code" rows="3" readonly aria-label="Codice notifiche"></textarea>
         <button type="button" class="btn" id="n-copy">Copia codice</button>
       </div>
@@ -964,7 +964,7 @@ html,body{margin:0}
     $("n-on").hidden=false;$("n-test").hidden=false;
     var on=Notification.permission==="granted"&&cfg&&cfg.sub;
     $("n-badge").textContent=on?"attive":"spente";
-    st.textContent=on?"Acqua alle 10:30, passi alle 18:00, bilancio alle 21:00. Se non arrivano, controlla di aver mandato il codice a Claude.":"Ti arriveranno 3 promemoria al giorno: acqua alle 10:30, passi alle 18:00, bilancio della giornata alle 21:00.";
+    st.textContent=on?"Acqua alle 10:30, passi alle 18:00, bilancio alle 21:00. Se non arrivano, controlla di aver salvato il codice su GitHub come PUSH_CONFIG.":"Ti arriveranno 3 promemoria al giorno: acqua alle 10:30, passi alle 18:00, bilancio della giornata alle 21:00.";
     $("n-on").textContent=on?"Mostra di nuovo il codice":"Attiva notifiche";
   }
   $("n-on").addEventListener("click",async function(){
