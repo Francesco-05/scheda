@@ -43,7 +43,12 @@ const MESSAGES = {
     { title: "Pausa acqua", body: "Il fegato lavora meglio idratato. Un bicchiere e un tocco su + Bicchiere." },
     { title: "Acqua", body: "Un bicchiere ora vale 2 punti. Facili." }
   ],
-  passi: gymDay
+  passi: ["Sun", "Wed"].includes(weekday)
+    ? [
+        { title: "Meal prep", body: "Stasera 45 minuti di prep e i pranzi dei prossimi tre giorni sono pronti. Passaggi e spesa sono nella scheda Cibo." },
+        { title: "Oggi si prepara", body: "Forno a 200°C, una teglia, un pentolino: tre pranzi pronti. Apri Cibo → Meal prep." }
+      ]
+    : gymDay
     ? [
         { title: "Oggi palestra", body: "Anche solo i primi tre esercizi valgono. Apri la Scheda e premi Inizia." },
         { title: "Giorno di palestra", body: "Borsa pronta? Un'ora per te, il resto può aspettare." },
