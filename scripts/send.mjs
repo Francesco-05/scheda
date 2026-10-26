@@ -60,16 +60,16 @@ const MESSAGES = {
         { title: "Passi", body: "Hai una telefonata da fare? Falla camminando." }
       ],
   sera: [
-    { title: "Bilancio della giornata", body: "Segna acqua, passi e pasti. Tre su quattro e la giornata è vinta." },
-    { title: "Prima di dormire", body: "Scrivi una cosa che hai fatto bene oggi. Anche piccola." },
-    { title: "Com'è andata?", body: "Anche se oggi è andata così così, segnala: la serie si costruisce anche con le giornate no." },
-    { title: "Ultimo tocco", body: "Due minuti per aggiornare la Scheda, poi a letto: anche il sonno fa dimagrire." }
+    { title: "Chiudi la giornata", body: "2 minuti: come stai, come hai dormito, le priorità di domani. La serie ti aspetta." },
+    { title: "Fine giornata", body: "Svuota la testa prima di dormire: scrivi e riordina, poi spegni." },
+    { title: "Com'è andata oggi?", body: "Anche se è andata così così, chiudila lo stesso: la serie si costruisce anche con le giornate no." },
+    { title: "Ultimo tocco", body: "Priorità di domani e una cosa fatta bene. Poi a letto: anche il sonno fa dimagrire." }
   ]
 };
 
 const msg = pick(MESSAGES[slot] || MESSAGES.test);
 try {
-  await webpush.sendNotification(cfg.subscription, JSON.stringify({ ...msg, tag: slot, url: "./?tab=today" }), { TTL: 4 * 3600 });
+  await webpush.sendNotification(cfg.subscription, JSON.stringify({ ...msg, tag: slot, url: slot === "sera" ? "./?checkin=1" : "./?tab=today" }), { TTL: 4 * 3600 });
   console.log(`Inviata (${slot}): ${msg.title}`);
 } catch (err) {
   console.error("Invio fallito:", err.statusCode, err.body || err.message);
