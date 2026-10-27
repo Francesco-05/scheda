@@ -650,6 +650,14 @@ body[data-tab="log"]{--acc:#8D7CF2;--acc2:#F27BAE}
 .ck .ck-row,.ck .tstep,.ck .scale button,.ck .seg3 button,.ck .toggle,.ck .so-acts button{background:rgba(255,255,255,.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .ck .scale button[aria-pressed="true"],.ck .seg3 button[aria-pressed="true"]{background:var(--k,var(--ink))}
 .ck .seg3 button[aria-pressed="true"]{color:var(--bg)}
+.big-title{font-size:clamp(2rem,11.5vw,3rem)}
+.fab{transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .2s}
+body.fab-away .fab{transform:translateY(130px) scale(.6);opacity:0;pointer-events:none}
+.wrap{padding-bottom:170px}
+.hello>div{min-width:0}
+.hello-t{font-size:clamp(1.9rem,10.5vw,2.5rem)}
+#dia-f{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;overflow:visible}
+#dia-f button{padding:9px 4px;font-size:.8rem;text-align:center}
 .toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:600;font-size:.92rem;z-index:50;transition:opacity .25s,transform .25s;pointer-events:none;max-width:calc(100% - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .toast b{color:var(--c)}
@@ -2611,6 +2619,10 @@ html,body{margin:0}
   $("mi-rec").addEventListener("click",function(){startRec("mind")});
   $("qc-rec").addEventListener("click",function(){$("qcap").hidden=true;startRec("qcap")});
 
+  /* tasto + che si nasconde scorrendo verso il basso */
+  (function(){var lastY=window.scrollY,acc=0;window.addEventListener("scroll",function(){var y=window.scrollY,dy=y-lastY;lastY=y;acc=(acc>0)===(dy>0)?acc+dy:dy;
+    var nearEnd=y+innerHeight>=document.documentElement.scrollHeight-40;
+    if(acc>24||nearEnd)document.body.classList.add("fab-away");else if(acc<-16||y<40)document.body.classList.remove("fab-away")},{passive:true})})();
   /* ================= NAVIGAZIONE E AVVIO ================= */
   function showTab(t){
     tab=t;lsSet("sf4-tab",t);
