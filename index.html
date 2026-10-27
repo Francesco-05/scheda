@@ -658,6 +658,92 @@ body.fab-away .fab{transform:translateY(130px) scale(.6);opacity:0;pointer-event
 .hello-t{font-size:clamp(1.9rem,10.5vw,2.5rem)}
 #dia-f{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;overflow:visible}
 #dia-f button{padding:9px 4px;font-size:.8rem;text-align:center}
+
+/* ===== V3: Studio, AI, Salute, rifiniture Palestra e Cibo ===== */
+#mind-tabs{grid-template-columns:1fr 1fr}
+.segtabs button[aria-pressed="true"]{background:var(--acc);color:var(--on)}
+.st-hero{background:radial-gradient(120% 90% at 100% 0%,rgba(63,182,232,.18),transparent 60%),var(--s1)}
+.st-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.st-h b{font-family:var(--f-num);font-weight:900;font-size:2.6rem;line-height:1;display:block}.st-h small{display:block;color:var(--muted);font-size:.8rem;margin-top:4px}
+.st-ring{width:84px;height:84px;flex:none}.st-ring .bg{stroke:var(--s2)}.st-ring .fg{stroke:var(--water);stroke-linecap:round;transition:stroke-dashoffset .6s}.st-ring .tt{font-size:1.2rem}
+#st-bars{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;height:70px}
+.sb{display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+.sb i{width:100%;max-width:22px;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,var(--water),#5B4BD6);transition:height .5s}
+.sb span{font-size:.66rem;color:var(--muted);font-weight:700}.sb.cur span{color:var(--ink)}
+.exam summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:8px}
+.exam summary::-webkit-details-marker{display:none}
+.ex-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.ex-h b{font-size:1.02rem}.ex-h small{display:block;color:var(--muted);font-size:.78rem;margin-top:3px}
+.ex-p{font-family:var(--f-num);font-weight:900;font-size:1.5rem}
+.exam.focus{box-shadow:inset 0 0 0 1.5px var(--water),0 14px 30px rgba(0,0,0,.22)}
+.tag.fx{background:rgba(63,182,232,.16);color:var(--water)}
+.ex-b{display:flex;flex-direction:column;gap:10px;padding-top:12px}
+.tlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.tlist li{display:flex;gap:6px;align-items:center}
+.tp{flex:1;min-width:0;border:0;background:var(--s2);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px;text-align:left;font-size:.88rem;line-height:1.3;transition:background .2s}
+.tp i{width:12px;height:12px;border-radius:50%;border:2px solid var(--muted);flex:none;box-sizing:border-box;transition:all .2s}
+.tp span{flex:1;min-width:0}.tp em{font-style:normal;font-size:.7rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.tp.s1 i{background:var(--c);border-color:var(--c)}.tp.s1 em{color:var(--c)}
+.tp.s2 i{background:var(--ok);border-color:var(--ok);box-shadow:0 0 8px var(--ok)}.tp.s2 em{color:var(--ok)}.tp.s2 span{color:var(--muted)}
+.tlist .del{width:30px;height:30px;border:0;border-radius:50%;background:var(--s2);color:var(--muted);flex:none}
+.fs{position:fixed;inset:0;z-index:44;background:#07090C;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);overflow:hidden}
+.fs::before,.overlay::before,.rest::before{content:"";position:fixed;inset:-30%;pointer-events:none;z-index:0;filter:blur(30px);animation:drift 16s ease-in-out infinite alternate}
+.fs::before{background:radial-gradient(40% 32% at 25% 18%,rgba(63,182,232,.30),transparent 70%),radial-gradient(38% 30% at 78% 80%,rgba(141,124,242,.26),transparent 70%)}
+.overlay::before,.rest::before{background:radial-gradient(40% 30% at 20% 10%,rgba(76,130,242,.25),transparent 70%),radial-gradient(36% 28% at 85% 90%,rgba(141,124,242,.18),transparent 70%);background:radial-gradient(40% 30% at 20% 10%,color-mix(in srgb,var(--day) 30%,transparent),transparent 70%),radial-gradient(36% 28% at 85% 90%,rgba(141,124,242,.18),transparent 70%)}
+.fs>*,.overlay>*,.rest>*{position:relative;z-index:1}
+.fs-ex{font-weight:700;color:var(--water);font-size:.95rem}
+.fs-live,.fs-done{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:0 20px 20px;text-align:center;min-height:0}
+.fs-ring{width:min(70vw,280px);height:auto;aspect-ratio:1}
+.fs-ring .bg{stroke:rgba(255,255,255,.07)}.fs-ring .fg{stroke:var(--water);stroke-linecap:round;transition:stroke-dashoffset .25s linear}
+.fs-ring::before,.rest .ring::before{content:"";position:absolute;inset:5%;border-radius:50%;pointer-events:none;box-shadow:0 0 56px rgba(63,182,232,.30),inset 0 0 44px rgba(63,182,232,.12)}
+.rest .ring::before{box-shadow:0 0 56px color-mix(in srgb,var(--day) 32%,transparent),inset 0 0 44px color-mix(in srgb,var(--day) 12%,transparent)}
+.fs-ring circle{stroke-width:7}
+.fs-ring .tt{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.fs-ring .tt span{font-family:var(--f-num);font-weight:900;font-size:4.4rem;font-variant-numeric:tabular-nums;line-height:1}
+.fs-ring .tt small{font-family:var(--f-ui);font-size:.8rem;color:var(--muted);font-weight:600;margin-top:4px}
+.fs-topics{justify-content:center;max-width:460px;width:100%}
+.fs-topics button,#qz-topics button{white-space:normal;text-align:left;line-height:1.3}
+.field textarea.inp{font-family:var(--f-ui);font-weight:400;font-size:1rem;line-height:1.45;padding:12px 14px}
+.qz-go{position:sticky;bottom:0;box-shadow:0 -14px 28px 6px var(--bg);flex:none}
+.fs-tn{margin:0;font-weight:700;font-size:1.02rem;line-height:1.35;max-width:420px}
+.fs-foot{display:flex;gap:10px;width:100%;max-width:420px}.fs-foot .btn{flex:1}
+.fs-done .seg3{width:100%;max-width:420px}.fs-done>.btn{width:100%;max-width:420px}
+.qz-q b{display:block;font-size:1rem;line-height:1.4;color:var(--ink);font-weight:600;text-transform:none;letter-spacing:0;margin-bottom:4px}
+.qz-score{display:flex;align-items:baseline;justify-content:center;gap:4px;padding-top:10px}
+.qz-score b{font-family:var(--f-num);font-weight:900;font-size:4.6rem;color:var(--k);line-height:1;text-shadow:0 0 30px var(--k)}
+.qz-score span{font-family:var(--f-num);font-weight:800;font-size:1.6rem;color:var(--muted)}
+.qz-r{background:rgba(255,255,255,.06);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.qz-r p{margin:0;font-size:.9rem;line-height:1.45}.qz-r .qz-qt{color:var(--muted)}
+.qz-v{font-family:var(--f-num);font-weight:900;font-size:1.25rem;color:var(--k)}
+.qz-r summary{cursor:pointer;color:var(--violet);font-weight:700;font-size:.82rem;list-style:none}.qz-r summary::-webkit-details-marker{display:none}
+.qz-r details p{margin-top:6px}
+.ai-wait{display:flex;flex-direction:column;align-items:center;gap:14px;padding:40px 0;color:var(--muted);text-align:center}
+.ai-wait i{width:46px;height:46px;border-radius:50%;border:3px solid rgba(255,255,255,.1);border-top-color:var(--violet);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#ai-out{background:var(--s2);border-radius:14px;padding:12px 14px;white-space:pre-wrap;font-size:.93rem;line-height:1.5}
+#ai-out small{display:block;color:var(--muted);font-size:.74rem;margin-bottom:6px;white-space:normal}
+#ai-out p{margin:0}
+.howto{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px;font-size:.88rem;line-height:1.45}
+.howto code{background:var(--s2);border-radius:6px;padding:1px 6px;font-size:.84rem}
+.howto-d summary{cursor:pointer;color:var(--acc);font-weight:700;font-size:.9rem;list-style:none}.howto-d summary::-webkit-details-marker{display:none}.howto-d[open] summary{margin-bottom:10px}
+/* Palestra */
+.daybar button{transition:transform .15s,box-shadow .3s,background .3s}
+.daybar button[aria-pressed="true"]{background:linear-gradient(160deg,color-mix(in srgb,var(--k) 78%,#fff),var(--k));box-shadow:0 12px 28px color-mix(in srgb,var(--k) 40%,transparent),inset 0 1px 0 rgba(255,255,255,.35)}
+.start{background:linear-gradient(135deg,color-mix(in srgb,var(--day) 78%,#fff),var(--day));box-shadow:0 14px 32px color-mix(in srgb,var(--day) 38%,transparent),inset 0 1px 0 rgba(255,255,255,.35)}
+.exlist{box-shadow:inset 0 1px 0 var(--hl),0 14px 30px rgba(0,0,0,.22);border-radius:20px}
+.exrow .n{width:32px;height:32px;border-radius:50%;background:color-mix(in srgb,var(--day) 16%,transparent);display:grid;place-items:center;font-size:1.05rem}
+.exrow.done .n{background:color-mix(in srgb,var(--ok) 18%,transparent)}
+.exrow{transition:background .2s}.exrow:active{background:rgba(255,255,255,.04)}
+.stepper{background:rgba(255,255,255,.05);box-shadow:inset 0 1px 0 var(--hl);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.done-btn{background:linear-gradient(135deg,color-mix(in srgb,var(--day) 78%,#fff),var(--day));box-shadow:0 14px 34px color-mix(in srgb,var(--day) 42%,transparent)}
+.setchips button.done{background:rgba(61,190,120,.12)}
+/* Cibo */
+.meal-c{background:linear-gradient(180deg,rgba(255,255,255,.03),transparent),var(--s1);box-shadow:inset 0 1px 0 var(--hl),0 10px 24px rgba(0,0,0,.18);border-radius:18px}
+.tl>li.next .dt{border-color:var(--c);box-shadow:0 0 0 4px rgba(242,194,48,.16),0 0 14px rgba(242,194,48,.55)}
+.tl>li.ok .dt{box-shadow:0 0 10px rgba(61,190,120,.6)}
+.meal-act .go{background:linear-gradient(135deg,#63D99B,var(--ok));box-shadow:0 6px 16px rgba(61,190,120,.28)}
+.lcard.today{box-shadow:0 8px 22px rgba(61,190,120,.35)}
+.prep summary .ph b{color:var(--ink)}
 .toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:600;font-size:.92rem;z-index:50;transition:opacity .25s,transform .25s;pointer-events:none;max-width:calc(100% - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .toast b{color:var(--c)}
@@ -707,6 +793,7 @@ html,body{margin:0}
 
     <div class="card" id="prio-card"></div>
     <button type="button" class="mind-strip" id="mind-strip" data-go-tab="mind" hidden></button>
+    <button type="button" class="mind-strip" id="study-strip" style="background:rgba(141,124,242,.12)"></button>
 
     <div class="tiles">
       <div class="tile" id="tl-water">
@@ -722,6 +809,7 @@ html,body{margin:0}
         <div class="tbar"><i id="s-bar"></i></div>
         <p class="sub" id="s-sub"></p>
         <div class="tctl" id="s-ctl"><button type="button" class="tbtn main" id="s-plus">+1.000</button><button type="button" class="tbtn sq" id="s-edit" aria-label="Scrivi i passi dall'app Salute"><svg viewBox="0 0 24 24" width="18" height="18" style="stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button></div>
+        <button type="button" class="tlink" data-health="1" style="color:var(--ok)">Importa da Salute ›</button>
         <div class="tctl" id="s-form" hidden><input class="inp" id="steps-in" inputmode="numeric" placeholder="Passi" aria-label="Passi di oggi dall'app Salute"><button type="button" class="tbtn main sq" id="s-save" aria-label="Salva passi">OK</button></div>
       </div>
       <div class="tile t-move" id="tl-move">
@@ -937,7 +1025,9 @@ html,body{margin:0}
 
   <!-- MENTE -->
   <section class="view" id="v-mind" hidden>
-    <div><p class="eyebrow">Mente</p><h1 class="big-title">Testa libera</h1></div>
+    <div><p class="eyebrow">Mente</p><h1 class="big-title" id="mind-title">Testa libera</h1></div>
+    <div class="segtabs" id="mind-tabs" role="group" aria-label="Sezioni mente"><button type="button" data-mt="head">Pensieri</button><button type="button" data-mt="study">Studio</button></div>
+    <div class="view" id="mt-head">
     <div class="mic-hero">
       <button type="button" class="orb" id="mi-rec" aria-label="Registra un pensiero"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg></button>
       <p class="mic-l">Tocca e parla</p>
@@ -952,6 +1042,19 @@ html,body{margin:0}
     <div class="card" id="mi-voices" hidden></div>
     <div class="card" id="mi-todo"></div>
     <div class="card" id="mi-ideas"></div>
+    </div>
+    <div class="view" id="mt-study" hidden>
+      <div class="card st-hero">
+        <div class="st-top"><div class="st-h"><p class="eyebrow">Studio questa settimana</p><b id="st-week">0 min</b><small id="st-goal"></small></div><div class="ring st-ring"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="50"/><circle class="fg" id="st-fg" cx="60" cy="60" r="50"/></svg><div class="tt" id="st-pct">0%</div></div></div>
+        <div id="st-bars"></div>
+        <p class="ck-q">Cosa studi adesso</p>
+        <div class="qchips" id="st-ex"></div>
+        <div class="seg3" id="st-len"><button type="button" data-m="25">25 min</button><button type="button" data-m="50">50 min</button><button type="button" data-m="0">Libero</button></div>
+        <button type="button" class="btn day" id="st-go" style="--day:var(--water)">Inizia a studiare</button>
+      </div>
+      <div class="card" id="st-next"></div>
+      <div class="view" id="st-exams" style="gap:10px"></div>
+    </div>
   </section>
 
   <!-- COACH -->
@@ -991,6 +1094,43 @@ html,body{margin:0}
       <p class="muted" style="font-size:.78rem">Il codice blocca l'apertura dell'app; i dati restano salvati solo su questo telefono.</p>
     </div>
     <div class="card">
+      <h2 class="h2">Collegamento con Salute</h2>
+      <p class="muted">Passi e peso arrivano dall'app Salute con un Comando Rapido: lo crei una volta sola, poi basta un tocco.</p>
+      <button type="button" class="btn" data-health="1" style="background:var(--ok)">Importa da Salute</button>
+      <details class="howto-d"><summary>Come creare il comando (5 minuti, una volta sola)</summary>
+        <ol class="howto">
+          <li>Apri <b>Comandi Rapidi</b>, tocca <b>+</b> e chiama il comando <b>Dati per Scheda</b>.</li>
+          <li>Aggiungi l'azione <b>Trova campioni di Salute</b>: tipo <b>Passi</b>, poi aggiungi il filtro <b>Data di inizio è oggi</b>.</li>
+          <li>Aggiungi <b>Calcola statistiche</b> e scegli <b>Somma</b>.</li>
+          <li>Se hai una bilancia collegata a Salute: aggiungi di nuovo <b>Trova campioni di Salute</b>, tipo <b>Peso</b>, ordina per <b>Data di inizio, dal più recente</b>, limite <b>1</b>. Altrimenti salta questo passo.</li>
+          <li>Aggiungi <b>Testo</b> e scrivi <code>SCHEDA;passi=</code> poi inserisci la variabile <b>Statistiche</b>; se hai fatto il passo 4 continua con <code>;peso=</code> e la variabile <b>Campioni di Salute</b>.</li>
+          <li>Aggiungi <b>Copia negli appunti</b>. Fine.</li>
+          <li>Per usarlo: lancia il comando (o di' «Ehi Siri, dati per Scheda»), apri la Scheda e tocca <b>Importa da Salute</b>, poi <b>Incolla</b>.</li>
+        </ol>
+        <p class="muted" style="font-size:.8rem;margin-top:10px">Ancora più comodo: Comandi Rapidi › Automazione › + › <b>Ora del giorno</b> 20:50 › <b>Esegui immediatamente</b> › azione <b>Esegui comando: Dati per Scheda</b>. Alle 21, quando arriva la notifica del check-in, i dati sono già pronti da importare.</p>
+      </details>
+    </div>
+    <div class="card" id="ai-card">
+      <h2 class="h2">Coach AI</h2>
+      <p class="muted" id="ai-state"></p>
+      <div class="formcol">
+        <input class="inp" id="ai-key" type="password" autocomplete="off" placeholder="Incolla la chiave che inizia con sk-ant-" aria-label="Chiave API">
+        <div class="seg2" id="ai-model"><button type="button" data-m="claude-sonnet-5-5">Sonnet 5.5</button><button type="button" data-m="claude-haiku-5-5">Haiku 5.5 · economico</button></div>
+        <label class="field"><span>Il tuo profilo per il coach</span><textarea class="inp" id="ai-profile" rows="4" placeholder="Età, obiettivi, condizioni di salute, dieta, lavoro, esami: tutto quello che il coach deve sapere di te. Resta solo su questo telefono."></textarea></label>
+        <button type="button" class="btn" id="ai-save">Salva e prova</button>
+        <p class="msg" id="ai-msg" role="status"></p>
+      </div>
+      <details class="howto-d"><summary>Come ottenere la chiave</summary>
+        <ol class="howto"><li>Vai su <b>console.anthropic.com</b> e crea un account.</li><li>In <b>Billing</b> carica del credito: 5-10 € bastano per settimane di uso normale.</li><li>In <b>API keys</b> crea una chiave, copiala e incollala qui sopra.</li></ol>
+      </details>
+      <div class="view" id="ai-tools" style="gap:10px" hidden>
+        <button type="button" class="btn day" style="--day:var(--violet)" id="ai-week">Revisione della settimana</button>
+        <div class="composer"><textarea class="inp" id="ai-q" rows="2" placeholder="Chiedi qualcosa al coach" aria-label="Domanda"></textarea><button type="button" class="btn" id="ai-send">Invia</button></div>
+      </div>
+      <div id="ai-out" hidden></div>
+      <button type="button" class="link" id="ai-off" hidden>Togli la chiave</button>
+    </div>
+    <div class="card">
       <div class="card-head"><h2 class="h2">Notifiche</h2><span class="v" id="n-badge"></span></div>
       <p class="muted" id="n-status"></p>
       <p class="muted" id="n-diag" style="font-size:.75rem;opacity:.8"></p>
@@ -1021,6 +1161,12 @@ html,body{margin:0}
       <div class="btn-row"><button type="button" class="btn ghost" id="bk-exp">Esporta</button><button type="button" class="btn ghost" id="bk-imp">Importa</button></div>
       <input type="file" id="bk-file" accept="application/json,.json" hidden>
       <p class="msg" id="bk-msg" role="status"></p>
+    </div>
+    <div class="card">
+      <h2 class="h2">Nuovo inizio</h2>
+      <p class="muted">Cancella giornate, pasti, allenamenti, soldi e pensieri e riparte da oggi. Abitudini, premi, esami e impostazioni restano. Prima faccio una copia di sicurezza.</p>
+      <button type="button" class="btn ghost" id="reset-all">Ricomincia da zero</button>
+      <button type="button" class="link" id="reset-undo" hidden></button>
     </div>
   </section>
 </div>
@@ -1131,6 +1277,46 @@ html,body{margin:0}
     <button type="button" class="link" id="rv-drop">Scarta</button>
   </div>
 </div>
+<div class="fs" id="fs" hidden role="dialog" aria-modal="true" aria-label="Sessione di studio">
+  <div class="rec-top"><button type="button" class="icon" id="fs-x" aria-label="Esci"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><span class="fs-ex" id="fs-ex"></span></div>
+  <div class="fs-live" id="fs-live">
+    <div class="ring fs-ring"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" id="fs-fg" cx="60" cy="60" r="52"/></svg><div class="tt"><span id="fs-t">25:00</span><small id="fs-sub">alla pausa</small></div></div>
+    <p class="ck-q">Su cosa stai lavorando</p>
+    <div class="qchips fs-topics" id="fs-topics"></div>
+    <div class="fs-foot"><button type="button" class="btn ghost" id="fs-pause">Pausa</button><button type="button" class="btn day" style="--day:var(--water)" id="fs-stop">Ho finito</button></div>
+  </div>
+  <div class="fs-done" id="fs-done" hidden>
+    <div class="ck-check">✓</div>
+    <h2 class="ck-t" id="fs-done-t"></h2>
+    <p class="ck-line" id="fs-done-s"></p>
+    <div id="fs-topic-q" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:8px"><p class="ck-q">Com'è andata con questo argomento?</p><p class="fs-tn" id="fs-topic-n"></p><div class="seg3"><button type="button" data-fst="no">Da rivedere</button><button type="button" data-fst="1">Studiato</button><button type="button" data-fst="2">Ce l'ho</button></div></div>
+    <button type="button" class="btn" data-fst="no">Salva e chiudi</button>
+  </div>
+</div>
+<div class="ck" id="qz" hidden role="dialog" aria-modal="true" aria-label="Interrogazione" style="--ck1:#8D7CF2;--ck2:#3FB6E8">
+  <div class="ck-top"><button type="button" class="icon" id="qz-x" aria-label="Chiudi"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="ckbar"><i style="width:100%"></i></div><small id="qz-ex"></small></div>
+  <div class="ck-body" id="qz-body"></div>
+</div>
+<div class="sheet" id="hp" hidden role="dialog" aria-modal="true" aria-labelledby="hp-h">
+  <div class="in">
+    <div class="grab"></div>
+    <div class="sh-h"><h2 class="h2" id="hp-h">Dati da Salute</h2><button type="button" class="icon" id="hp-x" aria-label="Chiudi"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <p class="muted">Lancia il comando «Dati per Scheda» (o di' «Ehi Siri, dati per Scheda»), poi tieni premuto qui sotto e scegli Incolla. Se non hai ancora il comando, la guida è in Tu.</p>
+    <textarea class="inp" id="hp-t" rows="3" placeholder="SCHEDA;passi=…;peso=…" aria-label="Dati da Salute"></textarea>
+    <button type="button" class="btn" id="hp-ok">Importa</button>
+    <p class="msg err" id="hp-msg"></p>
+  </div>
+</div>
+<div class="sheet" id="fresh" hidden role="dialog" aria-modal="true" aria-labelledby="fresh-h">
+  <div class="in">
+    <div class="grab"></div>
+    <h2 class="h2" id="fresh-h">Si parte da oggi</h2>
+    <p class="muted" style="color:var(--ink)">Da oggi la Scheda conta davvero. Vuoi cancellare i dati di prova di queste settimane e partire da zero?</p>
+    <p class="muted">Abitudini, premi, esami e impostazioni restano. Faccio comunque una copia di sicurezza, ripristinabile da Tu.</p>
+    <button type="button" class="btn day" style="--day:var(--violet)" id="fresh-go">Sì, parto da zero</button>
+    <button type="button" class="btn ghost" id="fresh-keep">No, tengo tutto</button>
+  </div>
+</div>
 <div class="lock" id="lock" hidden role="dialog" aria-modal="true" aria-label="Inserisci il codice">
   <div class="lk-in"><p class="eyebrow">Scheda</p><h2 class="h2">Inserisci il codice</h2><div class="lk-dots" id="lk-dots"><i></i><i></i><i></i><i></i></div><p class="msg err" id="lk-msg"></p>
     <div class="keypad" id="keypad"><button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button><button type="button" data-k="4">4</button><button type="button" data-k="5">5</button><button type="button" data-k="6">6</button><button type="button" data-k="7">7</button><button type="button" data-k="8">8</button><button type="button" data-k="9">9</button><button type="button" class="e" tabindex="-1" aria-hidden="true"></button><button type="button" data-k="0">0</button><button type="button" data-k="del" aria-label="Cancella">⌫</button></div>
@@ -1180,7 +1366,7 @@ html,body{margin:0}
     ]
   };
   var WEEKS={1:{load:"50%",rir:"3-4",fixed:2,top:true},2:{load:"60-70%",rir:"2-3",fixed:2,top:true},3:{load:"70-80%",rir:"2",fixed:0,top:false},4:{load:"progressione",rir:"1-2",fixed:0,top:false}};
-  var START="2026-10-13";
+  var START="2026-10-27";
   var MEALS=["Colazione","Spuntino","Pranzo","Merenda","Cena"];
   var LEVELS=[[0,"Si riparte"],[300,"Rodaggio"],[800,"Costante"],[1500,"Abitudine"],[2500,"Macchina"],[4000,"Inarrestabile"],[6000,"Leggenda"],[9000,"Leggenda+"]];
   var MISSIONS=["Bevi un bicchiere d'acqua appena sveglio","Cammina 10 minuti dopo pranzo","Prepara la borsa della palestra la sera prima","Fai le scale invece dell'ascensore","Mangia la verdura prima del resto del piatto","Scendi una fermata prima o parcheggia più lontano","Zero bibite zuccherate oggi","Fai una telefonata camminando","Vai a letto 30 minuti prima","Porta sempre con te la bottiglia d'acqua","Pranza seduto, senza telefono, in almeno 15 minuti","5 minuti di stretching prima di dormire","Prepara stasera la colazione di domani","Cammina 15 minuti dopo cena","Se mangi fuori, scegli la versione alla griglia","Bevi un bicchiere d'acqua prima di ogni pasto","Fai 2.000 passi in più di ieri","Cammina 10 minuti appena esci dal lavoro","Scrivi tre cose di cui sei fiero questa settimana","Telefono lontano 30 minuti prima di dormire","Esci a camminare 20 minuti con qualcuno","Frutta al posto del dolce dopo cena","Riempi la bottiglia due volte entro pranzo","Fai la lista della spesa del prossimo meal prep","Sali e scendi le scale di casa 5 volte","Mangia lentamente: posa la forchetta tra un boccone e l'altro","Manda un messaggio al coach su com'è andata la giornata","Fai una foto allo specchio: tra un mese la confronti"];
@@ -1241,10 +1427,11 @@ html,body{margin:0}
     var hb=x.hb||{};for(var k in hb)if(hb[k])xp+=5;
     if(x.relax)xp+=5;if(x.learned)xp+=5;if(x.thoughts)xp+=5;
     xp+=Math.min(20,(x.sorted||0)*2);
+    xp+=Math.min(60,Math.floor(minOn(d)/5)*2);
     return xp;
   }
-  function allDates(){var set={};Object.keys(S.days).forEach(function(k){set[k]=1});S.sessions.forEach(function(s){set[s.date]=1});return Object.keys(set).sort()}
-  function totalXP(){var t=0;allDates().forEach(function(d){t+=dayXP(d)});t+=S.body.length*10;var md={};(S.money||[]).forEach(function(m){md[m.date]=1});t+=Object.keys(md).length*5;t+=challengeBonus();return t}
+  function allDates(){var set={};Object.keys(S.days).forEach(function(k){set[k]=1});S.sessions.forEach(function(s){set[s.date]=1});(S.study||[]).forEach(function(s){set[s.date]=1});return Object.keys(set).sort()}
+  function totalXP(){var t=0;allDates().forEach(function(d){t+=dayXP(d)});t+=S.body.length*10;var md={};(S.money||[]).forEach(function(m){md[m.date]=1});t+=Object.keys(md).length*5;t+=challengeBonus();t+=exams().reduce(function(a,e){return a+e.topics.filter(function(x){return x.st===2}).length*10},0);return t}
   function levelOf(xp){var i=0;while(i<LEVELS.length-1&&xp>=LEVELS[i+1][0])i++;return i}
   function streakInfo(){
     var t=today(),d=dayOk(t)?t:addDays(t,-1),n=0,jokers={},lastJoker=null,guard=0;
@@ -1934,6 +2121,7 @@ html,body{margin:0}
     for(var q=13;q>=0;q--){var dd=addDays(t,-q),y=S.days[dd];if(!y)continue;var parts=[];if(y.mood)parts.push("umore "+y.mood+"/5");if(y.energy)parts.push("energia "+y.energy+"/5");var sh=sleepH(y.sleep);if(sh!=null)parts.push("sonno "+fmtH(sh)+" (a letto "+y.sleep.bed+")");if(y.prio&&y.prio.length)parts.push("priorità "+y.prio.filter(function(p){return p.done}).length+"/"+y.prio.length);var hb2=y.hb||{},hn=cfg().habits.filter(function(h){return hb2[h.id]}).map(function(h){return h.n});if(hn.length)parts.push("abitudini: "+hn.join(", "));if(y.relax)parts.push("relax"+(y.relaxWhat&&y.relaxWhat.length?" ("+y.relaxWhat.join(", ")+")":""));if(y.learned)parts.push("imparato: "+y.learned);if(y.thoughts)parts.push("pensieri: "+y.thoughts.slice(0,200));if(parts.length){any=true;o.push("- "+dd+": "+parts.join(", "))}}
     if(!any)o.push("nessuno");
     var mm=today().slice(0,7),mo=(S.money||[]).filter(function(m){return m.date.slice(0,7)===mm});if(mo.length){var ti=0,tou=0,bc={};mo.forEach(function(m){if(m.type==="in")ti+=m.amt;else{tou+=m.amt;bc[m.cat]=(bc[m.cat]||0)+m.amt}});o.push("","SOLDI QUESTO MESE: entrate "+eur(ti)+", spese "+eur(tou)+" ("+Object.keys(bc).sort(function(a,b){return bc[b]-bc[a]}).map(function(k){return catName("out",k)+" "+eur(bc[k])}).join(", ")+")")}
+    var sw=weekStart(t);o.push("","STUDIO (università, Economia e Management): questa settimana "+fmtMin(minWeek(sw))+" su "+cfg().studyGoal+"h di obiettivo.");exams().forEach(function(e){o.push("- "+e.n+": "+Math.round(exPct(e)*100)+"% del programma"+(e.date?", appello il "+e.date:"")+(e.focus?" (in corso)":""))});
     o.push("","La mia domanda: ");return o.join("\n");
   }
   $("ask-claude").addEventListener("click",function(){
@@ -2035,6 +2223,7 @@ html,body{margin:0}
     {id:"bed",t:"A letto entro mezzanotte 4 volte",goal:4,f:function(D){return cnt(D,function(x){return bedOk(x.sleep)})}},
     {id:"mo",t:"Registra l'umore 6 giorni",goal:6,f:function(D){return cnt(D,function(x){return !!x.mood})}},
     {id:"mn",t:"Segna le spese 5 giorni",goal:5,f:function(D){var set={};(S.money||[]).forEach(function(m){set[m.date]=1});return D.filter(function(d){return set[d]}).length}},
+    {id:"stu",t:"3 ore di studio in settimana",goal:180,f:function(D){return D.reduce(function(a,d){return a+minOn(d)},0)}},
     {id:"so",t:"Riordina i pensieri 3 sere",goal:3,f:function(D){return cnt(D,function(x){return (x.sorted||0)>0})}}
   ];
   function weekDays(ws){var a=[],td=today();for(var i=0;i<7;i++){var d=addDays(ws,i);if(d<=td&&d>=START)a.push(d)}return a}
@@ -2061,6 +2250,7 @@ html,body{margin:0}
     corpo:function(x,d){
       var h=habits(d),wt=waterTarget(!!x.minimal),gym=isGymDay(d)&&!x.minimal,tr=trainedOn(d);
       return '<h2 class="ck-t">Il corpo</h2><p class="ck-s">Controlla e correggi, 10 secondi.</p>'+
+        '<button type="button" class="mic-inline" data-health="1" style="background:rgba(61,190,120,.14);color:var(--ok)">Importa passi e peso da Salute</button>'+
         '<div class="ck-row"><span>Acqua<small>'+fmtN((x.water||0)*.25)+' L di '+fmtN(wt*.25)+'</small></span><div class="mini"><button type="button" data-act="w" data-v="-1" aria-label="Meno acqua">−</button><b>'+(x.water||0)+'</b><button type="button" data-act="w" data-v="1" aria-label="Più acqua">+</button></div></div>'+
         '<div class="ck-row"><span>Passi<small>obiettivo '+fmtK(stepTarget(d,!!x.minimal))+' · dall\'app Salute</small></span><input class="inp ck-num" data-f="steps" inputmode="numeric" value="'+(x.steps||"")+'" placeholder="0" aria-label="Passi"></div>'+
         (tr?'<div class="ck-row"><span>Allenamento</span><b class="okc">Salvato ✓</b></div>':'<button type="button" class="toggle" data-act="move" aria-pressed="'+(gym?!!x.gymDone:!!x.walk)+'"><span>'+(gym?"Mi sono allenato oggi":"Ho camminato almeno 20 minuti")+'</span><span class="sw"></span></button>')+
@@ -2079,7 +2269,8 @@ html,body{margin:0}
     lavoro:function(x){
       var p=x.prio||[];
       return '<h2 class="ck-t">Le priorità di oggi</h2>'+(p.length?'<p class="ck-s">Spunta quelle che hai fatto.</p><ul class="chk big">'+p.map(function(q,i){return '<li class="'+(q.done?"on":"")+'"><label><input type="checkbox" data-act="prio" data-v="'+i+'"'+(q.done?" checked":"")+'><span>'+esc(q.t)+'</span></label></li>'}).join("")+'</ul>':'<p class="ck-s">Ieri sera non avevi impostato priorità. Se oggi hai portato a casa qualcosa di importante, scrivilo.</p>')+
-        (p.length<3?'<div class="addrow"><input class="inp" id="ck-padd" placeholder="Cosa ho fatto di importante" maxlength="80"><button type="button" class="btn sm" data-act="padd">Aggiungi</button></div>':'');
+        (p.length<3?'<div class="addrow"><input class="inp" id="ck-padd" placeholder="Cosa ho fatto di importante" maxlength="80"><button type="button" class="btn sm" data-act="padd">Aggiungi</button></div>':'')+
+        '<p class="ck-q">Studio oggi</p><div class="ck-row"><span>'+fmtMin(minOn(CK.d))+'<small>Hai studiato senza il timer? Aggiungilo qui</small></span></div><div class="seg3">'+[15,30,60].map(function(m){return '<button type="button" data-act="stadd" data-v="'+m+'">+'+m+' min</button>'}).join("")+'</div>';
     },
     abitudini:function(x){
       var hb=x.hb||{},rw=x.relaxWhat||[];
@@ -2128,7 +2319,7 @@ html,body{margin:0}
     if(x.ate==="si")return "Hai mangiato secondo il piano: è lì che si vince la partita del peso.";
     return "Un'altra giornata chiusa. È la costanza, non la perfezione, che ti cambia.";
   }
-  function chHTML(ch){return '<div class="chl">'+ch.map(function(c){var pct=Math.min(100,c.v/c.goal*100);return '<div class="chi'+(c.done?" done":"")+'"><div class="chi-h"><span>'+esc(c.t)+'</span><b>'+(c.done?"✓ +50":(c.goal>1000?fmtK(c.v)+" / "+fmtK(c.goal):c.v+" / "+c.goal))+'</b></div><div class="tbar"><i style="width:'+pct+'%"></i></div></div>'}).join("")+'</div>'}
+  function chHTML(ch){return '<div class="chl">'+ch.map(function(c){var pct=Math.min(100,c.v/c.goal*100);return '<div class="chi'+(c.done?" done":"")+'"><div class="chi-h"><span>'+esc(c.t)+'</span><b>'+(c.done?"✓ +50":c.id==="stu"?fmtMin(c.v)+" / 3h":(c.goal>1000?fmtK(c.v)+" / "+fmtK(c.goal):c.v+" / "+c.goal))+'</b></div><div class="tbar"><i style="width:'+pct+'%"></i></div></div>'}).join("")+'</div>'}
   function renderCk(){
     var name=CK.steps[CK.step],d=CK.d,x=dayDoc(d);
     $("ck-bar").style.width=((CK.step+1)/CK.steps.length*100)+"%";
@@ -2173,6 +2364,7 @@ html,body{margin:0}
     else if(a==="relax"){ckSet({relax:!x.relax})}
     else if(a==="rx"){var rw=(x.relaxWhat||[]).slice(),ix=rw.indexOf(v);if(ix>=0)rw.splice(ix,1);else rw.push(v);ckSet({relaxWhat:rw})}
     else if(a==="sex"){ckSet({sex:!x.sex})}
+    else if(a==="stadd"){study().push({id:"s"+uid(),date:d,ex:focusExam().id,topic:"",min:n,ts:Date.now()});persist();toast("Studio aggiunto <b>+"+Math.floor(n/5)*2+"</b>")}
     else if(a==="padd"){var t=$("ck-padd").value.trim();if(!t)return;ckSet({prio:(x.prio||[]).concat([{t:t.slice(0,80),done:true}])})}
     else if(a==="head"){var t2=$("ck-head").value.trim();if(!t2){$("ck-head").focus();return}openSorter(addIdeas(splitThoughts(t2)));return}
     else if(a==="sortall"){openSorter();return}
@@ -2216,6 +2408,7 @@ html,body{margin:0}
       (pr.length?'<ul class="chk">'+pr.map(function(q,i){return '<li class="'+(q.done?"on":"")+'"><label><input type="checkbox" data-pr="'+i+'"'+(q.done?" checked":"")+'><span>'+esc(q.t)+'</span></label></li>'}).join("")+'</ul>':'<p class="muted">Le 3 cose più importanti della giornata. Di solito le scrivi la sera prima nel check-in.</p>')+
       (pr.length<3?'<div class="addrow"><input class="inp" id="pr-add" placeholder="Aggiungi una priorità" maxlength="80" aria-label="Aggiungi una priorità"><button type="button" class="btn sm" id="pr-add-btn">Aggiungi</button></div>':'');
     var nIn=inbox().length;$("mind-strip").hidden=!nIn;$("mind-strip").innerHTML='<span><b>'+nIn+(nIn===1?" cosa":" cose")+' da riordinare</b><small>in Mente</small></span><i>Riordina ›</i>';
+    exams();var swm=minWeek(weekStart(today())),sfe=focusExam();$("study-strip").innerHTML='<span><b>Studio: '+fmtMin(swm)+' di '+cfg().studyGoal+'h questa settimana</b><small>Prossima mossa: '+esc(sfe.n)+'</small></span><i style="color:var(--violet)">Studia ›</i>';
     var ch=weekChallenges(weekStart(d)),rw=nextReward();
     $("ch-card").innerHTML='<div class="card-head"><h2 class="h2">Sfide della settimana</h2><span class="v">'+ch.filter(function(c){return c.done}).length+'/3</span></div>'+chHTML(ch)+
       (rw?'<button type="button" class="rwnext" data-go-tab="coach"><span>Prossimo premio<b>'+esc(rw.n)+'</b></span><small>'+rw.left+'</small></button>':'');
@@ -2291,6 +2484,7 @@ html,body{margin:0}
     $("pin-state").textContent=c.pinHash?"Codice attivo: la Scheda chiede il codice quando la apri.":"Nessun codice. Chi prende il tuo telefono può aprire la Scheda.";
     $("pin-set").hidden=!!c.pinHash;$("pin-off").hidden=!c.pinHash;
     $("love-tg").setAttribute("aria-pressed",String(!!c.showLove));
+    renderAI();renderReset();
   }
   $("hb-add-btn").addEventListener("click",addHabit);
   $("hb-add").addEventListener("keydown",function(e){if(e.key==="Enter")addHabit()});
@@ -2619,6 +2813,225 @@ html,body{margin:0}
   $("mi-rec").addEventListener("click",function(){startRec("mind")});
   $("qc-rec").addEventListener("click",function(){$("qcap").hidden=true;startRec("qcap")});
 
+  /* ================= STUDIO ================= */
+  var EXAMS_DEFAULT=[
+    {id:"dc",n:"Diritto commerciale",focus:true,topics:["L'imprenditore e l'impresa (art. 2082 c.c.)","Piccolo imprenditore, impresa agricola e commerciale","Statuto dell'imprenditore commerciale: registro delle imprese e scritture contabili","Rappresentanza commerciale: institori, procuratori, commessi","L'azienda e il suo trasferimento","Segni distintivi: ditta, insegna, marchio","Concorrenza sleale e disciplina antitrust","Consorzi e forme di collaborazione tra imprese","Le società: nozione e tipi","Società semplice, s.n.c. e s.a.s.","S.p.A.: costituzione e conferimenti","Azioni, obbligazioni e patti parasociali","Organi della S.p.A.: assemblea, amministratori, controlli","Il bilancio d'esercizio","La S.r.l.","Operazioni straordinarie: trasformazione, fusione, scissione","Titoli di credito: cambiale e assegno","Crisi d'impresa e liquidazione giudiziale"]},
+    {id:"mi",n:"Microeconomia",topics:["Domanda, offerta ed equilibrio di mercato","Elasticità","Preferenze, curve di indifferenza e utilità","Vincolo di bilancio e scelta ottima del consumatore","Effetto reddito e effetto sostituzione","Produzione: isoquanti e rendimenti di scala","Costi di breve e lungo periodo","Concorrenza perfetta","Monopolio","Discriminazione di prezzo","Oligopolio e teoria dei giochi","Concorrenza monopolistica","Mercati dei fattori produttivi","Efficienza ed equilibrio generale","Esternalità, beni pubblici e informazione asimmetrica"]},
+    {id:"co",n:"Contabilità",topics:["Azienda, patrimonio e reddito","Il metodo della partita doppia e i conti","Costituzione dell'impresa","Acquisti, vendite e IVA","Regolamento di debiti e crediti, banca","Il personale e il TFR","Immobilizzazioni e ammortamenti","Finanziamenti e mutui","Scritture di assestamento: ratei e risconti","Rimanenze, fondi e accantonamenti","Chiusura e riapertura dei conti","Bilancio: stato patrimoniale e conto economico","Analisi di bilancio per indici","Esercizi di partita doppia completi"]},
+    {id:"dm",n:"Diritto per il marketing",topics:["Fonti del diritto e principi di base","Il contratto in generale","Contratti di distribuzione: agenzia, concessione, franchising","Tutela del consumatore e Codice del consumo","Pratiche commerciali scorrette","Pubblicità ingannevole e comparativa","Autodisciplina pubblicitaria (IAP)","Marchi e segni distintivi","Diritto d'autore e contenuti di brand","Concorrenza sleale","Privacy e GDPR nel marketing","E-commerce e marketing digitale","Influencer marketing e regole AGCM","Concorsi e operazioni a premio"]},
+    {id:"ma",n:"Macroeconomia",topics:["Contabilità nazionale: PIL, inflazione, disoccupazione","Mercato dei beni e moltiplicatore","Mercati finanziari e offerta di moneta","Il modello IS-LM","IS-LM in economia aperta","Il mercato del lavoro","Curva di Phillips","Il modello AS-AD","Crescita economica e modello di Solow","Tassi di cambio e bilancia dei pagamenti","Politica monetaria e BCE","Politica fiscale e debito pubblico","Il ruolo delle aspettative"]}
+  ];
+  function exams(){var c=cfg();if(!c.exams){c.exams=EXAMS_DEFAULT.map(function(e){return {id:e.id,n:e.n,focus:!!e.focus,date:null,topics:e.topics.map(function(t,i){return {id:e.id+i,t:t,st:0}})}});persist()}if(c.studyGoal===undefined)c.studyGoal=4;return c.exams}
+  function study(){S.study=S.study||[];return S.study}
+  function examById(id){return exams().filter(function(e){return e.id===id})[0]}
+  function exPct(e){var n=e.topics.length;if(!n)return 0;return e.topics.reduce(function(a,t){return a+t.st},0)/(2*n)}
+  function minOn(d){return study().reduce(function(a,s){return a+(s.date===d?s.min:0)},0)}
+  function minWeek(ws){var a=0,e=addDays(ws,6);study().forEach(function(s){if(s.date>=ws&&s.date<=e)a+=s.min});return a}
+  function fmtMin(m){m=Math.round(m);var h=Math.floor(m/60),r=m%60;return h?h+"h"+(r?" "+String(r).padStart(2,"0"):""):r+" min"}
+  function daysTo(dt){return Math.round((parse(dt)-parse(today()))/864e5)}
+  function focusExam(){var L=exams();var f=L.filter(function(e){return e.focus})[0];if(f)return f;var dated=L.filter(function(e){return e.date&&daysTo(e.date)>=0}).sort(function(a,b){return a.date<b.date?-1:1});return dated[0]||L[0]}
+  function nextTopic(e){return e.topics.filter(function(t){return t.st===0})[0]||e.topics.filter(function(t){return t.st===1})[0]||null}
+  var mindTab=lsGet("sf-mt","head"),stLen=lsGet("sf-stlen",25),stEx=null;
+  function setMindTab(t){mindTab=t;lsSet("sf-mt",t);$("mt-head").hidden=t!=="head";$("mt-study").hidden=t!=="study";$("mind-title").textContent=t==="study"?"Studio":"Testa libera";[].forEach.call($("mind-tabs").children,function(b){b.setAttribute("aria-pressed",String(b.dataset.mt===t))});if(t==="study")renderStudy()}
+  $("mind-tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b){setMindTab(b.dataset.mt);window.scrollTo(0,0)}});
+  function renderStudy(){
+    var L=exams(),c=cfg(),ws=weekStart(today()),wm=minWeek(ws),goal=c.studyGoal*60,pct=Math.min(1,wm/goal),C=2*Math.PI*50;
+    $("st-week").textContent=fmtMin(wm);$("st-goal").textContent="di "+c.studyGoal+" ore a settimana";
+    $("st-fg").style.strokeDasharray=C;$("st-fg").style.strokeDashoffset=C*(1-pct);$("st-pct").textContent=Math.round(pct*100)+"%";
+    var Ls=["L","M","M","G","V","S","D"],mx=Math.max(60,Math.max.apply(null,[0,1,2,3,4,5,6].map(function(i){return minOn(addDays(ws,i))})));
+    $("st-bars").innerHTML=[0,1,2,3,4,5,6].map(function(i){var d=addDays(ws,i),m=minOn(d);return '<div class="sb'+(d===today()?" cur":"")+'"><i style="height:'+Math.max(m?8:3,m/mx*100)+'%"></i><span>'+Ls[i]+'</span></div>'}).join("");
+    if(!stEx||!examById(stEx))stEx=focusExam().id;
+    $("st-ex").innerHTML=L.map(function(e){return '<button type="button" data-ex="'+e.id+'" aria-pressed="'+(e.id===stEx)+'">'+esc(e.n)+'</button>'}).join("");
+    [].forEach.call($("st-len").children,function(b){b.setAttribute("aria-pressed",String(+b.dataset.m===stLen))});
+    var fe=focusExam(),nt=nextTopic(fe),dd=fe.date?daysTo(fe.date):null;
+    $("st-next").innerHTML='<p class="eyebrow">La prossima mossa</p><h2 class="h2">'+esc(fe.n)+'</h2>'+
+      '<p class="muted" style="color:var(--ink)">'+(nt?"25 minuti su: <b>"+esc(nt.t)+"</b>":"Hai segnato tutti gli argomenti: ripassa e fatti interrogare.")+'</p>'+
+      '<p class="muted">'+(dd!==null?(dd>=0?"Appello tra "+dd+(dd===1?" giorno":" giorni")+" ("+itDate(fe.date)+")":"Appello passato: aggiorna la data"):"Data dell'appello non impostata")+' · '+Math.round(exPct(fe)*100)+'% del programma</p>'+
+      '<div class="btn-row"><button type="button" class="btn day" style="--day:var(--water)" data-stgo="'+fe.id+'">Inizia 25 minuti</button><button type="button" class="btn ghost" data-quiz="'+fe.id+'">Interrogami</button></div>';
+    $("st-exams").innerHTML=L.map(function(e){
+      var p=exPct(e),done=e.topics.filter(function(t){return t.st===2}).length,dd2=e.date?daysTo(e.date):null,hrs=study().reduce(function(a,s){return a+(s.ex===e.id?s.min:0)},0);
+      return '<details class="card exam'+(e.focus?" focus":"")+'"><summary><div class="ex-h"><div><b>'+esc(e.n)+'</b>'+(e.focus?'<i class="tag fx">In corso</i>':'')+'<small>'+(dd2!==null?(dd2>=0?"Appello tra "+dd2+" giorni":"Appello passato"):"Nessuna data")+' · '+fmtMin(hrs)+' studiati</small></div><span class="ex-p">'+Math.round(p*100)+'%</span></div><div class="tbar" style="--k:'+(p>=.75?"var(--ok)":p>=.35?"var(--c)":"var(--water)")+'"><i style="width:'+(p*100)+'%"></i></div></summary>'+
+        '<div class="ex-b"><div class="btn-row"><button type="button" class="btn sm day" style="--day:var(--water)" data-stgo="'+e.id+'">Studia</button><button type="button" class="btn sm ghost" data-quiz="'+e.id+'">Interrogami</button><button type="button" class="btn sm ghost" data-focus="'+e.id+'">'+(e.focus?"Togli dal focus":"Metti a fuoco")+'</button></div>'+
+        '<label class="field"><span>Data dell\'appello</span><input class="inp" type="date" data-exdate="'+e.id+'" value="'+(e.date||"")+'"></label>'+
+        '<p class="ck-q">Argomenti · '+done+'/'+e.topics.length+' sicuri</p><p class="muted" style="font-size:.78rem">Tocca per cambiare stato: da fare → studiato → ce l\'ho. È il programma tipico: confrontalo con quello del tuo corso e modificalo.</p>'+
+        '<ul class="tlist">'+e.topics.map(function(t,i){return '<li><button type="button" class="tp s'+t.st+'" data-tp="'+e.id+':'+i+'"><i></i><span>'+esc(t.t)+'</span><em>'+["Da fare","Studiato","Ce l'ho"][t.st]+'</em></button><button type="button" class="del" data-tdel="'+e.id+':'+i+'" aria-label="Togli argomento">×</button></li>'}).join("")+'</ul>'+
+        '<div class="addrow"><input class="inp" data-tadd-in="'+e.id+'" placeholder="Aggiungi un argomento" maxlength="120"><button type="button" class="btn sm" data-tadd="'+e.id+'">Aggiungi</button></div></div></details>';
+    }).join("")+'<div class="card"><div class="row2"><span>Obiettivo settimanale</span><div class="mini"><button type="button" data-goal="-1" aria-label="Meno ore">−</button><b>'+c.studyGoal+'h</b><button type="button" data-goal="1" aria-label="Più ore">+</button></div></div></div>';
+  }
+  $("st-ex").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;stEx=b.dataset.ex;renderStudy()});
+  $("st-len").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;stLen=+b.dataset.m;lsSet("sf-stlen",stLen);renderStudy()});
+  $("st-go").addEventListener("click",function(){startFocus(stEx,stLen)});
+  $("mt-study").addEventListener("click",function(e){
+    var g=e.target.closest("[data-stgo]");if(g){startFocus(g.dataset.stgo,25);return}
+    var q=e.target.closest("[data-quiz]");if(q){openQuiz(q.dataset.quiz);return}
+    var f=e.target.closest("[data-focus]");if(f){var ex=examById(f.dataset.focus),was=ex.focus;exams().forEach(function(x){x.focus=false});ex.focus=!was;persist();renderStudy();return}
+    var tp=e.target.closest("[data-tp]");if(tp){var a=tp.dataset.tp.split(":"),t=examById(a[0]).topics[+a[1]];t.st=(t.st+1)%3;persist();tp.className="tp s"+t.st;tp.querySelector("em").textContent=["Da fare","Studiato","Ce l'ho"][t.st];if(t.st===2)toast("Argomento sicuro <b>+10</b>");return}
+    var td=e.target.closest("[data-tdel]");if(td){if(!arm(td,"?"))return;armed=null;var b=td.dataset.tdel.split(":");examById(b[0]).topics.splice(+b[1],1);persist();renderStudy();keepOpen(b[0]);return}
+    var ta=e.target.closest("[data-tadd]");if(ta){var inp=$("mt-study").querySelector('[data-tadd-in="'+ta.dataset.tadd+'"]'),v=inp.value.trim();if(!v)return;var ex2=examById(ta.dataset.tadd);ex2.topics.push({id:ex2.id+uid(),t:v.slice(0,120),st:0});persist();renderStudy();keepOpen(ex2.id);return}
+    var go=e.target.closest("[data-goal]");if(go){var c=cfg();c.studyGoal=Math.max(1,Math.min(30,c.studyGoal+(+go.dataset.goal)));persist();renderStudy()}
+  });
+  function keepOpen(id){var el=$("mt-study").querySelector('[data-stgo="'+id+'"]');var det=el&&el.closest("details");if(det)det.open=true}
+  $("mt-study").addEventListener("change",function(e){var d=e.target.dataset.exdate;if(!d)return;examById(d).date=e.target.value||null;persist();renderStudy();keepOpen(d)});
+
+  /* --- sessione di concentrazione --- */
+  var FS={};
+  function startFocus(exId,len){
+    var e=examById(exId)||focusExam(),nt=nextTopic(e);
+    FS={ex:e.id,len:len*60,t0:Date.now(),paused:0,pauseAt:0,topic:nt?nt.t:"",running:true,done:false};
+    $("fs").hidden=false;document.body.style.overflow="hidden";$("fs-ex").textContent=e.n;$("fs-done").hidden=true;$("fs-live").hidden=false;
+    $("fs-topics").innerHTML=e.topics.filter(function(t){return t.st<2}).slice(0,6).map(function(t){return '<button type="button" data-ft="'+esc(t.t)+'" aria-pressed="'+(t.t===FS.topic)+'">'+esc(t.t)+'</button>'}).join("");
+    $("fs-pause").textContent="Pausa";keepAwake();fsTick();
+  }
+  function fsElapsed(){return ((FS.pauseAt||Date.now())-FS.t0-FS.paused)/1000}
+  function fsTick(){
+    if(!FS.running||$("fs").hidden)return;
+    var el=fsElapsed(),C=2*Math.PI*52;
+    if(FS.len){var left=Math.max(0,FS.len-el);$("fs-t").textContent=fmtDur(left);$("fs-fg").style.strokeDasharray=C;$("fs-fg").style.strokeDashoffset=C*(el/FS.len);if(left<=0){fsFinish(true);return}}
+    else{$("fs-t").textContent=fmtDur(el);$("fs-fg").style.strokeDasharray=C;$("fs-fg").style.strokeDashoffset=C*(1-((el%3600)/3600))}
+    $("fs-sub").textContent=FS.pauseAt?"In pausa":FS.len?"alla pausa":"di studio";
+    FS.raf=setTimeout(fsTick,250);
+  }
+  function fsFinish(natural){
+    clearTimeout(FS.raf);var min=Math.round(fsElapsed()/60);FS.running=false;FS.min=min;
+    try{if(natural&&navigator.vibrate)navigator.vibrate([300,150,300])}catch(e){}
+    $("fs-live").hidden=true;$("fs-done").hidden=false;
+    var e=examById(FS.ex),t=e.topics.filter(function(x){return x.t===FS.topic})[0];
+    $("fs-done-t").textContent=min>=1?fmtMin(min)+" di "+e.n:"Sessione troppo breve per essere contata";
+    $("fs-done-s").textContent=natural?"Bravo. Ora 5 minuti di pausa vera: alzati, bevi un bicchiere d'acqua, niente telefono.":"Ogni minuto conta. La prossima volta prova ad arrivare a 25.";
+    $("fs-topic-q").hidden=!t;$("fs-topic-n").textContent=t?t.t:"";
+    if(natural)confetti();
+  }
+  function fsLog(st){
+    if(FS.done)return;FS.done=true;var min=FS.min||0;
+    if(min>=1){study().push({id:"s"+uid(),date:today(),ex:FS.ex,topic:FS.topic,min:min,ts:Date.now()});var e=examById(FS.ex),t=e.topics.filter(function(x){return x.t===FS.topic})[0];if(t&&st!==undefined&&st>t.st)t.st=st;persist();toast("Studio salvato <b>+"+Math.min(60,Math.floor(min/5)*2)+"</b>")}
+    $("fs").hidden=true;document.body.style.overflow="";renderStudy();renderToday();
+  }
+  $("fs-topics").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;FS.topic=b.dataset.ft;[].forEach.call(this.children,function(x){x.setAttribute("aria-pressed",String(x===b))})});
+  $("fs-pause").addEventListener("click",function(){if(FS.pauseAt){FS.paused+=Date.now()-FS.pauseAt;FS.pauseAt=0;this.textContent="Pausa"}else{FS.pauseAt=Date.now();this.textContent="Riprendi"}});
+  $("fs-stop").addEventListener("click",function(){fsFinish(false)});
+  $("fs-x").addEventListener("click",function(){if(FS.running){if(!arm(this,"Esci senza salvare?"))return;armed=null}clearTimeout(FS.raf);FS.running=false;$("fs").hidden=true;document.body.style.overflow=""});
+  $("fs-done").addEventListener("click",function(e){var b=e.target.closest("[data-fst]");if(!b)return;var v=b.dataset.fst;fsLog(v==="no"?undefined:+v)});
+
+  /* ================= INTERROGAZIONE (COACH AI) ================= */
+  var QZ={};
+  function openQuiz(exId){
+    var e=examById(exId);QZ={ex:exId,t0:Date.now()};
+    $("qz").hidden=false;document.body.style.overflow="hidden";$("qz-ex").textContent=e.n;
+    if(!(cfg().ai&&cfg().ai.key)){$("qz-body").innerHTML='<h2 class="ck-t">Interrogami</h2><p class="ck-s">L\'interrogazione usa il coach AI: ti fa 3 domande d\'esame sull\'argomento che scegli, poi corregge le tue risposte con voto e risposta modello.</p><p class="ck-s">Per attivarlo serve la tua chiave personale: Tu › Coach AI.</p><button type="button" class="btn" data-qz="gotu">Vai a Coach AI</button>';return}
+    var nt=nextTopic(e);QZ.topic=nt?nt.t:(e.topics[0]?e.topics[0].t:e.n);
+    $("qz-body").innerHTML='<h2 class="ck-t">Su cosa?</h2><p class="ck-s">Scegli l\'argomento: ti faccio 3 domande come all\'esame, dalla più facile alla più difficile.</p><div class="qchips" id="qz-topics">'+e.topics.map(function(t){return '<button type="button" data-qt="'+esc(t.t)+'" aria-pressed="'+(t.t===QZ.topic)+'">'+esc(t.t)+'</button>'}).join("")+'</div><button type="button" class="btn day qz-go" style="--day:var(--violet)" data-qz="start">Fammi le domande</button>';
+  }
+  function closeQuiz(){$("qz").hidden=true;if($("ck").hidden)document.body.style.overflow="";renderStudy()}
+  function aiErrMsg(e){if(e&&e.code==="nokey")return "Attiva il coach AI in Tu.";if(e&&e.code===401)return "La chiave non è valida: controllala in Tu › Coach AI.";if(e&&(e.code===429||e.code===402))return "Limite o credito esaurito sul tuo account. Riprova più tardi.";if(e&&e.code===529)return "Il servizio è sovraccarico, riprova tra poco.";if(e&&e.msg)return e.msg;return "Connessione non riuscita. Controlla internet e riprova."}
+  var TUTOR="Sei un tutor universitario esperto, paziente e chiaro. Lo studente frequenta un corso di laurea triennale in Economia e Management e studia lavorando a tempo pieno, con poco tempo a disposizione. Scrivi in italiano semplice e preciso, al livello di un esame di laurea triennale.";
+  $("qz-body").addEventListener("click",async function(e){
+    var t=e.target.closest("[data-qt]");if(t){QZ.topic=t.dataset.qt;[].forEach.call($("qz-topics").children,function(x){x.setAttribute("aria-pressed",String(x===t))});return}
+    var b=e.target.closest("[data-qz]");if(!b)return;var a=b.dataset.qz,ex=examById(QZ.ex);
+    if(a==="gotu"){closeQuiz();showTab("log");setTimeout(function(){$("ai-card").scrollIntoView({block:"start"})},80);return}
+    if(a==="start"){
+      $("qz-body").innerHTML='<div class="ai-wait"><i></i><p>Preparo le domande su «'+esc(QZ.topic)+'»…</p></div>';
+      try{
+        var txt=await ai(TUTOR,[{role:"user",content:"Materia: "+ex.n+". Argomento: "+QZ.topic+".\nCrea 3 domande d'esame a risposta aperta, come le farebbe il docente all'orale, dalla più semplice alla più difficile. Se la materia è economica, almeno una domanda chiede di spiegare un grafico a parole o di fare un piccolo calcolo. Rispondi SOLO con JSON: {\"domande\":[\"...\",\"...\",\"...\"]}"}],900);
+        var j=aiJSON(txt);QZ.q=(j.domande||[]).slice(0,3);if(!QZ.q.length)throw {msg:"Risposta non valida, riprova."};
+        $("qz-body").innerHTML='<h2 class="ck-t">Rispondi</h2><p class="ck-s">Scrivi come parleresti all\'esame. Puoi dettare con il microfono della tastiera. Se non sai, scrivi quello che ricordi.</p>'+QZ.q.map(function(q,i){return '<label class="field qz-q"><span>Domanda '+(i+1)+'</span><b>'+esc(q)+'</b><textarea class="inp" data-qa="'+i+'" rows="4" placeholder="La tua risposta"></textarea></label>'}).join("")+'<button type="button" class="btn day" style="--day:var(--violet)" data-qz="grade">Correggi</button>';
+      }catch(err){$("qz-body").innerHTML='<p class="rec-err">'+esc(aiErrMsg(err))+'</p><button type="button" class="btn ghost" data-qz="start">Riprova</button>'}
+      return;
+    }
+    if(a==="grade"){
+      var ans=[].map.call($("qz-body").querySelectorAll("[data-qa]"),function(x){return x.value.trim()});
+      $("qz-body").innerHTML='<div class="ai-wait"><i></i><p>Correggo le tue risposte…</p></div>';
+      try{
+        var body="Materia: "+ex.n+". Argomento: "+QZ.topic+".\n"+QZ.q.map(function(q,i){return "DOMANDA "+(i+1)+": "+q+"\nRISPOSTA DELLO STUDENTE: "+(ans[i]||"(nessuna risposta)")}).join("\n\n")+"\n\nValuta ogni risposta da 0 a 10 come un docente giusto ma esigente. Per ciascuna: un commento breve (massimo 40 parole) su cosa va bene e cosa manca, e una risposta modello sintetica (massimo 80 parole). Poi una sintesi di 1-2 frasi incoraggianti ma sincere e la media. Rispondi SOLO con JSON: {\"valutazioni\":[{\"voto\":7,\"commento\":\"...\",\"modello\":\"...\"}],\"sintesi\":\"...\",\"media\":7}";
+        var j2=aiJSON(await ai(TUTOR,[{role:"user",content:body}],1800)),V=j2.valutazioni||[],m=+j2.media||0;
+        var min=Math.max(1,Math.round((Date.now()-QZ.t0)/60000));study().push({id:"s"+uid(),date:today(),ex:QZ.ex,topic:QZ.topic,min:min,ts:Date.now(),quiz:m});persist();
+        $("qz-body").innerHTML='<div class="qz-score" style="--k:'+(m>=8?"var(--ok)":m>=6?"var(--c)":"var(--err)")+'"><b>'+fmtN(m)+'</b><span>/10</span></div><p class="ck-line" style="text-align:center;margin:0 auto">'+esc(j2.sintesi||"")+'</p>'+
+          QZ.q.map(function(q,i){var v=V[i]||{};return '<div class="qz-r"><div class="row2"><b>Domanda '+(i+1)+'</b><span class="qz-v" style="--k:'+((v.voto||0)>=8?"var(--ok)":(v.voto||0)>=6?"var(--c)":"var(--err)")+'">'+(v.voto==null?"—":v.voto)+'/10</span></div><p class="qz-qt">'+esc(q)+'</p><p>'+esc(v.commento||"")+'</p><details><summary>Risposta modello</summary><p>'+esc(v.modello||"")+'</p></details></div>'}).join("")+
+          '<p class="ck-q">Come segno «'+esc(QZ.topic)+'»?</p><div class="seg3"><button type="button" data-qz="st0">Da rifare</button><button type="button" data-qz="st1">Studiato</button><button type="button" data-qz="st2">Ce l\'ho</button></div><button type="button" class="btn ghost" data-qz="start">Altre 3 domande</button>';
+      }catch(err){$("qz-body").innerHTML='<p class="rec-err">'+esc(aiErrMsg(err))+'</p><button type="button" class="btn ghost" data-qz="start">Ricomincia</button>'}
+      return;
+    }
+    if(/^st\d$/.test(a)){var tt=ex.topics.filter(function(x){return x.t===QZ.topic})[0];if(tt){tt.st=+a.slice(2);persist()}toast("Argomento aggiornato");closeQuiz()}
+  });
+  $("qz-x").addEventListener("click",closeQuiz);
+
+  /* ================= COACH AI ================= */
+  async function ai(system,messages,max){
+    var c=cfg().ai||{};if(!c.key)throw {code:"nokey"};
+    var r;try{r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"content-type":"application/json","x-api-key":c.key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},body:JSON.stringify({model:c.model||"claude-sonnet-5-5",max_tokens:max||1200,system:system,messages:messages})})}catch(e){throw {code:"net"}}
+    var j=await r.json().catch(function(){return {}});
+    if(!r.ok)throw {code:r.status,msg:j.error&&j.error.message};
+    return (j.content||[]).filter(function(b){return b.type==="text"}).map(function(b){return b.text}).join("").trim();
+  }
+  function aiJSON(t){var m=String(t).match(/\{[\s\S]*\}/);return JSON.parse(m?m[0]:t)}
+  function coachSystem(){var p=(cfg().profile||"").trim();return "Sei il coach personale dell'utente: allenamento, alimentazione, abitudini, soldi, studio e benessere mentale. Sei caldo ma diretto, credi in lui e non lo giudichi mai. Dai del tu. Parti sempre da cosa ha fatto di buono nei dati, poi dai un solo passo concreto e piccolo. Non sei un medico: per sintomi o farmaci rimandi al medico. Se emerge un malessere emotivo pesante, lo accogli e suggerisci con delicatezza di parlarne con uno psicologo o una persona di fiducia. Scrivi in italiano, testo semplice senza markdown."+(p?"\n\nPROFILO DELL'UTENTE:\n"+p:"")}
+  function renderAI(){
+    var c=cfg(),a=c.ai||{};
+    $("ai-state").textContent=a.key?"Attivo con "+(a.model==="claude-haiku-5-5"?"Haiku 5.5 (economico)":"Sonnet 5.5")+". La chiave resta solo su questo telefono.":"Spento. Serve una chiave personale di Anthropic: costa pochi euro al mese per un uso come il tuo.";
+    $("ai-key").value="";$("ai-key").placeholder=a.key?"Chiave salvata (…"+a.key.slice(-4)+")":"Incolla la chiave che inizia con sk-ant-";
+    [].forEach.call($("ai-model").children,function(b){b.setAttribute("aria-pressed",String(b.dataset.m===(a.model||"claude-sonnet-5-5")))});
+    if(document.activeElement!==$("ai-profile"))$("ai-profile").value=c.profile||"";
+    $("ai-tools").hidden=!a.key;$("ai-off").hidden=!a.key;
+    var last=S.aiLast;$("ai-out").hidden=!last;if(last)$("ai-out").innerHTML='<small>'+esc(last.q)+' · '+itDate(last.date)+'</small><p>'+esc(last.a)+'</p>';
+  }
+  $("ai-model").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var c=cfg();c.ai=c.ai||{};c.ai.model=b.dataset.m;persist();renderAI()});
+  $("ai-save").addEventListener("click",async function(){
+    var c=cfg(),k=$("ai-key").value.trim(),msg=$("ai-msg");c.ai=c.ai||{};c.profile=$("ai-profile").value.trim().slice(0,3000);
+    if(k){if(!/^sk-ant-/.test(k)){msg.className="msg err";msg.textContent="Non sembra una chiave Anthropic: deve iniziare con sk-ant-.";return}c.ai.key=k}
+    persist();if(!c.ai.key){msg.className="msg";msg.textContent="Profilo salvato.";renderAI();return}
+    msg.className="msg";msg.textContent="Provo la connessione…";
+    try{await ai("Rispondi solo con: ok",[{role:"user",content:"ping"}],10);msg.className="msg ok";msg.textContent="Coach AI attivo e funzionante."}catch(err){msg.className="msg err";msg.textContent=aiErrMsg(err)}
+    renderAI();
+  });
+  $("ai-off").addEventListener("click",function(){if(!arm(this,"Tocca di nuovo per togliere la chiave"))return;armed=null;var c=cfg();if(c.ai)delete c.ai.key;persist();$("ai-msg").textContent="Chiave rimossa.";renderAI()});
+  async function aiAsk(label,question){
+    var out=$("ai-out");out.hidden=false;out.innerHTML='<div class="ai-wait"><i></i><p>Il coach sta leggendo i tuoi dati…</p></div>';
+    try{var data=summary().replace(/\n\nLa mia domanda: $/,"");var a=await ai(coachSystem(),[{role:"user",content:data+"\n\n"+question}],1200);S.aiLast={q:label,a:a,date:today()};persist();renderAI();out.scrollIntoView({block:"nearest"})}
+    catch(err){out.innerHTML='<p class="rec-err">'+esc(aiErrMsg(err))+'</p>'}
+  }
+  $("ai-week").addEventListener("click",function(){aiAsk("Revisione della settimana","Fai la revisione della mia settimana: 1) cosa è andato bene, con dettagli presi dai dati; 2) un andamento da notare; 3) UNA sola cosa da migliorare la prossima settimana, con un'azione concreta; 4) una frase di incoraggiamento sincera. Massimo 200 parole.")});
+  $("ai-send").addEventListener("click",function(){var q=$("ai-q").value.trim();if(!q){$("ai-q").focus();return}$("ai-q").value="";aiAsk(q.slice(0,80),q+"\n\nRispondi in massimo 150 parole, salvo che serva di più.")});
+
+  /* ================= COLLEGAMENTO CON SALUTE ================= */
+  function parseHealth(t){
+    t=String(t||"");if(!/scheda/i.test(t)&&!/passi\s*=/i.test(t))return null;
+    function num(k){var m=t.match(new RegExp(k+"\\s*=\\s*([\\d.,]+)","i"));if(!m)return null;var v=m[1];if(k==="passi"||k==="energia")return parseInt(v.replace(/[.,]\d{1,2}$/,"").replace(/\D/g,""),10)||null;v=v.indexOf(",")>=0?v.replace(/\./g,"").replace(",","."):v;var n=parseFloat(v);return isFinite(n)?n:null}
+    return {steps:num("passi"),weight:num("peso"),kcal:num("energia"),sleep:num("sonno")};
+  }
+  function applyHealth(h){
+    if(!h){toast("Negli appunti non ci sono dati di Salute");return false}
+    var t=today(),parts=[];
+    if(h.steps!=null&&h.steps>=0&&h.steps<200000){setDay({steps:h.steps},t);parts.push(fmtK(h.steps)+" passi")}
+    if(h.kcal!=null){setDay({kcalActive:h.kcal},t)}
+    if(h.weight!=null&&h.weight>40&&h.weight<250){var prev=S.body.filter(function(x){return x.date===t})[0];S.body=S.body.filter(function(x){return x.date!==t});S.body.push({date:t,weight:Math.round(h.weight*10)/10,waist:prev&&prev.waist!=null?prev.waist:null});persist();parts.push(fmtN(h.weight)+" kg")}
+    if(h.sleep!=null&&h.sleep>0&&h.sleep<16){var x=dayDoc(t);if(!x.sleep){var w=x.sleep&&x.sleep.wake||"07:30",wm=tmin(w);setDay({sleep:{bed:tfmt(wm-Math.round(h.sleep*60)),wake:w,q:null}},t)}parts.push(fmtH(h.sleep)+" di sonno")}
+    toast(parts.length?"Da Salute: <b>"+esc(parts.join(", "))+"</b>":"Nessun dato utile negli appunti");renderToday();if(tab==="log")renderLog();return true;
+  }
+  async function importHealth(){
+    var txt=null;try{if(navigator.clipboard&&navigator.clipboard.readText)txt=await navigator.clipboard.readText()}catch(e){txt=null}
+    if(txt&&parseHealth(txt)){applyHealth(parseHealth(txt));if(!$("ck").hidden)renderCk();return}
+    $("hp").hidden=false;$("hp-t").value=txt||"";setTimeout(function(){$("hp-t").focus()},50);
+  }
+  $("hp-ok").addEventListener("click",function(){var h=parseHealth($("hp-t").value);if(!h){$("hp-msg").textContent="Non trovo dati: lancia prima il comando «Dati per Scheda», poi incolla qui.";return}$("hp").hidden=true;$("hp-msg").textContent="";applyHealth(h);if(!$("ck").hidden)renderCk()});
+  $("hp-x").addEventListener("click",function(){$("hp").hidden=true});
+  document.addEventListener("click",function(e){if(e.target.closest("[data-health]"))importHealth()});
+
+  /* ================= NUOVO INIZIO ================= */
+  function hasData(){return Object.keys(S.days||{}).length||(S.sessions||[]).length||(S.money||[]).length||(S.ideas||[]).length||(S.voices||[]).length||(S.body||[]).length}
+  function wipeData(){
+    lsSet("sf-prereset",{when:Date.now(),S:S});
+    var keep=S.cfg||{};(keep.rewards||[]).forEach(function(r){r.claimed=[]});(keep.goals||[]).forEach(function(g){g.saved=0});(keep.exams||[]).forEach(function(e){e.topics.forEach(function(t){t.st=0})});
+    S={sessions:[],body:[],plans:{},days:{},money:[],ideas:[],voices:[],study:[],cfg:keep,myFoods:S.myFoods,shop:{c:{},x:(S.shop&&S.shop.x)||[]}};if(!S.myFoods)delete S.myFoods;persist();
+    try{Object.keys(localStorage).forEach(function(k){if(/^sf3-draft-|^sf2-chat$/.test(k))localStorage.removeItem(k)})}catch(e){}
+    try{indexedDB.deleteDatabase("scheda-audio");IDBP=null}catch(e){}
+    viewDay=today();renderToday();renderHome();renderLog();showPlan();if(tab==="money")renderMoney();if(tab==="mind")renderMind();
+  }
+  $("fresh-go").addEventListener("click",function(){wipeData();$("fresh").hidden=true;lsSet("sf-fresh-2610",true);confetti();toast("Si parte. <b>Giorno 1</b>")});
+  $("fresh-keep").addEventListener("click",function(){$("fresh").hidden=true;lsSet("sf-fresh-2610",true)});
+  $("reset-all").addEventListener("click",function(){if(!arm(this,"Tocca di nuovo: cancello tutto (con copia di sicurezza)"))return;armed=null;wipeData();renderTu();toast("Dati azzerati. Si riparte da oggi.")});
+  $("reset-undo").addEventListener("click",function(){var b=lsGet("sf-prereset",null);if(!b||!b.S)return;if(!arm(this,"Tocca di nuovo per ripristinare"))return;armed=null;S=b.S;persist();try{localStorage.removeItem("sf-prereset")}catch(e){}renderToday();renderHome();renderLog();renderTu();toast("Dati di prima ripristinati")});
+  function renderReset(){var b=lsGet("sf-prereset",null);$("reset-undo").hidden=!b;if(b)$("reset-undo").textContent="Ripristina i dati di prima del reset ("+new Date(b.when).toLocaleDateString("it-IT",{day:"numeric",month:"short"})+")"}
+
+  $("study-strip").addEventListener("click",function(){showTab("mind");setMindTab("study")});
   /* tasto + che si nasconde scorrendo verso il basso */
   (function(){var lastY=window.scrollY,acc=0;window.addEventListener("scroll",function(){var y=window.scrollY,dy=y-lastY;lastY=y;acc=(acc>0)===(dy>0)?acc+dy:dy;
     var nearEnd=y+innerHeight>=document.documentElement.scrollHeight-40;
@@ -2632,18 +3045,22 @@ html,body{margin:0}
     var sec={today:"v-today",train:"v-train",food:"v-food",money:"v-money",mind:"v-mind",log:"v-log"}[t];
     if(sec){var el=$(sec);el.classList.remove("enter");void el.offsetWidth;el.classList.add("enter");setTimeout(function(){el.classList.remove("enter")},900)}
     [].forEach.call(document.querySelectorAll(".nav button"),function(b){if(b.dataset.tab===t)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
-    if(t==="today")renderToday();if(t==="log")renderLog();if(t==="log"){renderTu();renderNotif();diag()}if(t==="food")renderFood();if(t==="money")renderMoney();if(t==="mind")renderMind();
+    if(t==="today")renderToday();if(t==="log")renderLog();if(t==="log"){renderTu();renderNotif();diag()}if(t==="food")renderFood();if(t==="money")renderMoney();if(t==="mind"){renderMind();setMindTab(mindTab)}
     window.scrollTo(0,0);
   }
   document.querySelector(".nav").addEventListener("click",function(e){var b=e.target.closest("button");if(b)showTab(b.dataset.tab)});
   document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible"&&tab==="today")renderToday()});
 
   var qtab=(location.search.match(/tab=(\w+)/)||[])[1];if(qtab&&["today","train","food","money","mind","log","coach"].indexOf(qtab)>=0)tab=qtab;
+  if(/study=1/.test(location.search)){tab="mind";mindTab="study"}
   document.body.dataset.tab=tab==="coach"?"log":tab;
   var wantCk=/checkin=1/.test(location.search);
   if(wantCk||/tab=/.test(location.search)){try{history.replaceState(null,"",location.pathname)}catch(e){}}
   renderToday();renderHome();renderLog();showPlan();renderNotif();showTab(tab==="coach"?"log":tab);
-  var startCk=function(){if(wantCk){viewDay=today();showTab("today");openCheckin(today())}};
+  var startCk=function(){
+    if(!lsGet("sf-fresh-2610",false)){if(hasData())$("fresh").hidden=false;else lsSet("sf-fresh-2610",true)}
+    if(wantCk){viewDay=today();showTab("today");openCheckin(today())}
+  };
   if(!showLock())startCk();else afterUnlock=startCk;
   if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").then(function(){renderNotif();diag()}).catch(function(){});
 })();

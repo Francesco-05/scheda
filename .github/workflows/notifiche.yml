@@ -1,9 +1,11 @@
 name: Notifiche
 
 # Orari in UTC: per ogni promemoria c'è una riga per l'ora legale e una per l'ora solare.
-# Lo script invia solo quella che corrisponde all'orario italiano (10:30, 18:00, 21:00).
+# Lo script invia solo quella che corrisponde all'orario italiano (9:45 nel weekend, 10:30, 18:00, 21:00).
 on:
   schedule:
+    - cron: "45 7 * * 0,6" # 9:45 sabato e domenica (studio), ora legale
+    - cron: "45 8 * * 0,6" # 9:45 sabato e domenica (studio), ora solare
     - cron: "30 8 * * *"   # 10:30 ora legale
     - cron: "30 9 * * *"   # 10:30 ora solare
     - cron: "0 16 * * *"   # 18:00 ora legale
@@ -13,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       slot:
-        description: "Quale notifica (test, acqua, passi, sera)"
+        description: "Quale notifica (test, studio, acqua, passi, sera)"
         default: "test"
 
 jobs:

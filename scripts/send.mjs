@@ -11,7 +11,7 @@ const cfg = JSON.parse(Buffer.from(raw.trim(), "base64").toString("utf8"));
 webpush.setVapidDetails("https://francesco-05.github.io/scheda/", cfg.publicKey, cfg.privateKey);
 
 const TZ = "Europe/Rome";
-const SLOTS = { 10: "acqua", 18: "passi", 21: "sera" };
+const SLOTS = { "09:45": "studio", "10:30": "acqua", "18:00": "passi", "21:00": "sera" };
 
 // Che ora era in Italia nel momento programmato? Le righe cron sono in UTC e ce n'è una per l'ora
 // legale e una per l'ora solare: parte solo quella che corrisponde all'orario italiano giusto.
@@ -19,8 +19,8 @@ function slotFromSchedule(cron) {
   const [min, hour] = cron.trim().split(/\s+/).map(Number);
   const now = new Date();
   const at = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), hour, min));
-  const h = Number(new Intl.DateTimeFormat("en-GB", { timeZone: TZ, hour: "2-digit", hour12: false }).format(at));
-  return SLOTS[h] || null;
+  const hm = new Intl.DateTimeFormat("en-GB", { timeZone: TZ, hour: "2-digit", minute: "2-digit", hour12: false }).format(at);
+  return SLOTS[hm] || null;
 }
 
 const manual = process.env.EVENT === "workflow_dispatch";
@@ -31,13 +31,24 @@ if (!slot) {
 }
 
 const weekday = new Intl.DateTimeFormat("en-GB", { timeZone: TZ, weekday: "short" }).format(new Date());
-const gymDay = ["Mon", "Wed", "Fri"].includes(weekday);
+// Palestra in pausa pranzo il martedì e il giovedì.
+const gymDay = ["Tue", "Thu"].includes(weekday);
 const dayIndex = Math.floor(Date.now() / 86400000);
 const pick = (arr) => arr[dayIndex % arr.length];
 
 const MESSAGES = {
   test: [{ title: "Scheda", body: "Le notifiche da GitHub funzionano. Ci sentiamo alle 10:30." }],
-  acqua: [
+  studio: [
+    { title: "Sessione di studio", body: "Caffè, telefono in un'altra stanza, 50 minuti. Apri la Scheda: l'argomento di oggi è già scelto." },
+    { title: "Un pezzo alla volta", body: "Due blocchi da 50 minuti e oggi l'esame è un po' più vicino. Mente › Studio › Inizia." },
+    { title: "Studio", body: "Non devi sentirti pronto, devi solo iniziare. I primi 5 minuti sono i più difficili." }
+  ],
+  acqua: gymDay
+    ? [
+        { title: "Oggi palestra a pranzo", body: "Borsa pronta? Esci all'ora fissata: anche 45 minuti valgono. Poi doccia veloce a casa." },
+        { title: "Pranzo = palestra", body: "Blocca l'ora in agenda e non spostarla. Apri la Scheda in palestra e premi Inizia." }
+      ]
+    : [
     { title: "Pausa acqua", body: "Un bicchiere adesso e segnalo nell'app. Due prima di pranzo e sei avanti." },
     { title: "Acqua", body: "A che punto sei? Riempi la bottiglia e tienila vicino." },
     { title: "Pausa acqua", body: "Il fegato lavora meglio idratato. Un bicchiere e un tocco su + Bicchiere." },
@@ -50,9 +61,8 @@ const MESSAGES = {
       ]
     : gymDay
     ? [
-        { title: "Oggi palestra", body: "Anche solo i primi tre esercizi valgono. Apri la Scheda e premi Inizia." },
-        { title: "Giorno di palestra", body: "Borsa pronta? Un'ora per te, il resto può aspettare." },
-        { title: "Oggi si allena", body: "Non serve la seduta perfetta, serve la seduta. Ci vediamo in palestra." }
+        { title: "Palestra fatta?", body: "Se a pranzo ci sei andato, segnalo: +50 punti. Se è saltata, 20 minuti di camminata stasera salvano la giornata." },
+        { title: "Com'è andata a pranzo?", body: "Allenamento fatto o no, la giornata non è persa: passi, acqua e cena come da piano." }
       ]
     : [
         { title: "Passi", body: "Una camminata di 20 minuti adesso e l'obiettivo è quasi fatto." },
@@ -69,7 +79,7 @@ const MESSAGES = {
 
 const msg = pick(MESSAGES[slot] || MESSAGES.test);
 try {
-  await webpush.sendNotification(cfg.subscription, JSON.stringify({ ...msg, tag: slot, url: slot === "sera" ? "./?checkin=1" : "./?tab=today" }), { TTL: 4 * 3600 });
+  await webpush.sendNotification(cfg.subscription, JSON.stringify({ ...msg, tag: slot, url: slot === "sera" ? "./?checkin=1" : slot === "studio" ? "./?tab=mind&study=1" : "./?tab=today" }), { TTL: 4 * 3600 });
   console.log(`Inviata (${slot}): ${msg.title}`);
 } catch (err) {
   console.error("Invio fallito:", err.statusCode, err.body || err.message);
