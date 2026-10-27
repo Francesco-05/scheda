@@ -1,5 +1,5 @@
 // Service worker: app disponibile offline + notifiche push.
-const CACHE = "scheda-v6";
+const CACHE = "scheda-v7";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", (e) => {
